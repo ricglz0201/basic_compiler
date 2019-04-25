@@ -40,9 +40,6 @@ BOOLEAN \#[ft]
 
 (\ )+ ;
 [\n]  ;
-%{
-// If nothing was found gaves error
-%}
-. { printf("<<ERROR LEXICO>>\n");return 1; };
+. { printf("<<ERROR LEXICO>>\n");return 1; }; // If nothing was found gaves error
 
-<<EOF>> {return 0;};
+<<EOF>> { return 0; }; //Use for testing with a file

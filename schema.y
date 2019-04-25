@@ -11,13 +11,15 @@ int yyerror(char*);
 // Define tokens that will be returned by lex
 %token NUM STR SYM BOOL END LCP RCP LSP RSP
 
-%%
 
+%%
 start: prog ;
 prog:
   exp prog { printf("[PRG]\n"); }
-  | end  { printf("[PRG]\n"); } ;
-end: END { return 0; } ;
+  | end  { printf("[PRG]\n");  } ;
+end: END { 
+  return 0; // Returns 0 to end the parser
+} ;
 exp:
   atomo { printf("[EXP]\n"); }
   | lista { printf("[EXP]\n"); } ;
