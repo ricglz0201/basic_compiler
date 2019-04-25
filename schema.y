@@ -1,4 +1,5 @@
 %{
+// [A01282829] Ricardo Javier Gonzalez Castillo
 #include <stdio.h>
 #if YYBISON
 union YYSTYPE;
@@ -7,6 +8,7 @@ int yyerror(char*);
 #endif
 %}
 
+// Define tokens that will be returned by lex
 %token NUM STR SYM BOOL END LCP RCP LSP RSP
 
 %%
@@ -34,6 +36,7 @@ elem:
   |  { printf("[ELM]\n"); } ;
 %%
 
+// Overload yyerror function so it can print if an error was found
 int yyerror(char *s) {
   printf("<<ERROR SINTACTICO>>\n");
   return 1;
