@@ -37,9 +37,8 @@ BOOLEAN \#[ft]
 \)  { printf("RCP : %s\n", yytext); return (RCP); };
 \[  { printf("LSP : %s\n", yytext); return (LSP); };
 \]  { printf("RSP : %s\n", yytext); return (RSP); };
+<<EOF>> { return 0; }; //Use for testing with a file
 
 (\ )+ ;
-[\n]  ;
-. { printf("<<ERROR LEXICO>>\n");return 1; }; // If nothing was found gaves error
-
-<<EOF>> { return 0; }; //Use for testing with a file
+[\n] ;
+. { printf("<<ERROR LEXICO>>\n"); return 1; }; // If nothing was found gaves error
